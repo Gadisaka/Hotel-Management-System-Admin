@@ -16,12 +16,12 @@ const Overview: React.FC<OverviewProps> = ({
   occupiedRooms,
 }) => {
   return (
-    <div className="flex flex-col justify-between shadow-md  p-3 rounded-md">
+    <div className="flex flex-col justify-between shadow-inner  p-3 rounded-md">
       <div className="p-2 text- ">
         <h1 className="text-2xl font-semibold text-gray-700">Overview</h1>
       </div>
       <div className="flex  justify-between px-5 ">
-        <div className="flex rounded-lg  shadow-inner p-8 gap-x-4  ">
+        <div className="flex rounded-lg bg-[rgb(94,53,177)] shadow-md p-8 gap-x-4  ">
           <div className="flex flex-col  ">
             <h1 className="text-md text-gray-500">Today's</h1>
             <p className="text-xl">Check-In</p>
@@ -30,7 +30,7 @@ const Overview: React.FC<OverviewProps> = ({
             {checkInToday}
           </p>
         </div>
-        <div className="flex rounded-lg shadow-inner p-8 gap-x-4  ">
+        <div className="flex rounded-lg shadow-md p-8 gap-x-4  ">
           <div className="flex flex-col  ">
             <h1 className="text-md text-gray-500">Today's</h1>
             <p className="text-xl">Check-In</p>
@@ -39,7 +39,7 @@ const Overview: React.FC<OverviewProps> = ({
             {checkInToday}
           </p>
         </div>
-        <div className="flex rounded-lg shadow-inner p-8 gap-x-4  ">
+        <div className="flex rounded-lg shadow-md p-8 gap-x-4  ">
           <div className="flex flex-col  ">
             <h1 className="text-md text-gray-500">Today's</h1>
             <p className="text-xl">Check-In</p>
@@ -48,7 +48,7 @@ const Overview: React.FC<OverviewProps> = ({
             {checkInToday}
           </p>
         </div>
-        <div className="flex rounded-lg shadow-inner p-8 gap-x-4  ">
+        <div className="flex rounded-lg shadow-md p-8 gap-x-4  ">
           <div className="flex flex-col  ">
             <h1 className="text-md text-gray-500">Today's</h1>
             <p className="text-xl">Check-In</p>
@@ -57,7 +57,7 @@ const Overview: React.FC<OverviewProps> = ({
             {checkInToday}
           </p>
         </div>
-        <div className="flex rounded-lg shadow-inner p-8 gap-x-4  ">
+        <div className="flex rounded-lg shadow-md p-8 gap-x-4  ">
           <div className="flex flex-col  ">
             <h1 className="text-md text-gray-500">Today's</h1>
             <p className="text-xl">Check-In</p>
