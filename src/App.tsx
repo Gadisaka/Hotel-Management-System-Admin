@@ -1,14 +1,14 @@
 // filepath: /c:/Users/Caleb/Desktop/PROJECTS/ON DEVELOPMENT/Hotel Management System/admin/src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/sidebar/sidebar.tsx";
 import Top from "./components/Top";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
 import Rooms from "./pages/Rooms";
 import Customers from "./pages/Customers";
 import Bookings from "./pages/Bookings";
-import Report from "./pages/Report";
+import Setting from "./pages/Settings.tsx";
 
 const App: React.FC = () => {
   return (
@@ -17,14 +17,14 @@ const App: React.FC = () => {
         <Sidebar />
         <div className="flex-1">
           <Top />
-          <main className="p-8 bg-gray-50">
+          <main className="p-8">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/employees" element={<Employees />} />
               <Route path="/rooms" element={<Rooms />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/bookings" element={<Bookings />} />
-              <Route path="/report" element={<Report />} />
+              <Route path="/setting" element={<Setting />} />
             </Routes>
           </main>
         </div>
