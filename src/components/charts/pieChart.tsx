@@ -1,0 +1,43 @@
+import React from "react";
+import { Box, Typography } from "@mui/material";
+import { PieChart } from "@mui/x-charts";
+
+const Piechart = () => {
+  const data = [
+    { label: "Single Bed", value: 25 },
+    { label: "Double Bed", value: 35 },
+    { label: "Triple Bed", value: 20 },
+    { label: "VIP", value: 20 },
+  ];
+
+  const customPalette = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"];
+
+  const valueFormatter = (item: { value: number }) => `${item.value}%`;
+
+  return (
+    <Box className=" lg:max-w-[48%]  w-full lg:items-start items-center shadow-md p-6">
+      <Typography
+        variant="h3"
+        color="initial"
+        sx={{ fontSize: "20px", fontWeight: "bold" }}
+      >
+        Occupied
+      </Typography>
+      <PieChart
+        height={300}
+        series={[
+          {
+            data: data,
+            innerRadius: 80,
+            arcLabel: () => "",
+            arcLabelMinAngle: 20,
+            valueFormatter,
+          },
+        ]}
+        colors={customPalette}
+      />
+    </Box>
+  );
+};
+
+export default Piechart;
