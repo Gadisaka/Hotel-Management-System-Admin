@@ -25,8 +25,9 @@ const Top: React.FC = () => {
         p: 2,
         alignItems: "center",
         justifyContent: "space-between",
+        bgcolor: "white",
       }}
-      className="shadow-md"
+      className="shadow-md  "
     >
       <Box></Box>
       <Box>

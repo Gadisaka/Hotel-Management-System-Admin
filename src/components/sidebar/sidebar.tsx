@@ -1,4 +1,4 @@
-import { Box, Typography, Stack, Paper, IconButton } from "@mui/material";
+import { Box, Typography, Stack, Paper, IconButton, Menu } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
@@ -46,7 +46,7 @@ export default function Sidebar() {
           sx={{ position: "absolute", top: 16, left: 16 }}
           onClick={toggleSidebar}
         >
-          {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
+          {isSidebarOpen ? <CloseIcon /> : <Menu />}
         </IconButton>
       )}
       {isSidebarOpen && (

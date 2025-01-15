@@ -107,7 +107,7 @@ const Chart: React.FC = () => {
     height: 300,
     sx: {
       [`.${axisClasses.left} .${axisClasses.label}`]: {
-        transform: "translate(-20px, 0)",
+        transform: "translate(-15px, 0)",
       },
     },
   };

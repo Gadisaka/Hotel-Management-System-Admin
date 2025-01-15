@@ -4,26 +4,26 @@ import Card from "./overviewCard";
 
 const Overview: React.FC = () => {
   const mockData = [
-    { title: "Customers", value: 20 },
-    { title: "Rooms", value: 50, total: 300 },
-    { title: "Monthly Income", value: 100 },
-    { title: "Bookings", value: 75 },
+    { title: "Active Customers", value: 436 },
+    { title: "Occupied Rooms", value: 436, total: 600 },
+    { title: "Today's Income", value: 750000 },
+    { title: "Today's Bookings", value: 435 },
   ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 w-full lg:grid-cols-4 gap-4">
       {mockData.map((data, index) => {
         let icon;
         switch (data.title) {
-          case "Customers":
+          case "Active Customers":
             icon = <PeopleAlt />;
             break;
-          case "Rooms":
+          case "Occupied Rooms":
             icon = <Article />;
             break;
-          case "Monthly Income":
+          case "Today's Income":
             icon = <AttachMoney />;
             break;
-          case "Bookings":
+          case "Today's Bookings":
             icon = <AddCard />;
             break;
           default:
@@ -34,7 +34,7 @@ const Overview: React.FC = () => {
             key={index}
             title={data.title}
             value={
-              data.title === "Monthly Income"
+              data.title === "Today's Income"
                 ? `${data.value} Birr`
                 : data.value
             }

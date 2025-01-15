@@ -13,11 +13,15 @@ import Setting from "./pages/Settings.tsx";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex">
-        <Sidebar />
+      <div className="flex justify-between">
+        <div className="top-0 left-0 h-screen sticky ">
+          <Sidebar />
+        </div>
         <div className="flex-1">
-          <Top />
-          <main className="p-8">
+          <div className="sticky top-0 z-50">
+            <Top />
+          </div>
+          <main className="p-8 z-10">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/employees" element={<Employees />} />

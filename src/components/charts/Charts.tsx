@@ -3,7 +3,7 @@ import Piechart from "./pieChart";
 
 const Charts: React.FC = () => {
   return (
-    <div className="flex flex-wrap md:flex-col lg:flex-row gap-5 justify-between items-center  w-full">
+    <div className="flex flex-wrap md:flex-col lg:flex-row gap-5 justify-between items-center bg-white w-full">
       <Chart />
       <Piechart />
     </div>
