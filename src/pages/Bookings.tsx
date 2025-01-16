@@ -1,22 +1,20 @@
-import SearchBar from "@/components/bookings/bookingSearch";
-import BookingsTable from "@/components/bookings/bookingsTable";
 import React from "react";
-import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import FilterAndSearch from "@/components/bookings/FilterAndSearch";
+import BookingTable from "@/components/bookings/bookingsTable";
+import { bookings } from "@/components/bookings/bookingsData";
 
 const Bookings: React.FC = () => {
+  const [filteredData, setFilteredData] = React.useState(bookings);
+
   return (
-    <div className=" flex justify-center flex-col items-center ">
-      <div className="flex w-full justify-between items-center bg-red-400 ">
-        <Box>
-          <Typography variant="body1" color="initial" sx={{ fontSize: "20px" }}>
-            blablaatbla
-          </Typography>
-        </Box>
-        <SearchBar />
-      </div>
-      <BookingsTable />
-    </div>
+    <Box sx={{ width: "100%", p: 2 }}>
+      {/* Filter and Search */}
+      <FilterAndSearch onFilterChange={(data) => setFilteredData(data)} />
+
+      {/* Booking Table */}
+      <BookingTable data={filteredData} />
+    </Box>
   );
 };
 
