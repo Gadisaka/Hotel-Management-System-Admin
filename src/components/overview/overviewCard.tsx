@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({ title, value, icon, total }) => {
               )}
             </Typography>
           </div>
-          <Box bgcolor="primary.light" p={2} borderRadius="50%">
+          <Box bgcolor="primary.light" color="white" p={2} borderRadius="50%">
             {icon}
           </Box>
         </Box>

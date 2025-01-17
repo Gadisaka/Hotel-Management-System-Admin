@@ -21,7 +21,7 @@ const App: React.FC = () => {
           <div className="sticky top-0 z-50">
             <Top />
           </div>
-          <main className="p-8 z-10">
+          <main className="p-8 z-10 ">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/employees" element={<Employees />} />

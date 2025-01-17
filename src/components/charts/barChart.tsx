@@ -95,7 +95,7 @@ const Chart: React.FC = () => {
     return `${value}birr`;
   }
 
-  const customPalette = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"];
+  const customPalette = ["#4CAF50", "#2196F3", "#FFC107", "#9C27B0"];
 
   const chartSetting = {
     yAxis: [

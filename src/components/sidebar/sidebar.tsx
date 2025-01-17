@@ -58,8 +58,8 @@ export default function Sidebar() {
             flexDirection: "column",
             gap: 5,
             padding: 2,
-            borderRadius: 2,
             boxShadow: 3,
+            bgcolor: "white",
           }}
         >
           <Box

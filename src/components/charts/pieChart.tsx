@@ -11,6 +11,7 @@ const Piechart = () => {
   ];
 
   const customPalette = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"];
+  // const customPalette = ["#B2DFDB", "#BBDEFB", "#D1C4E9", "#FFCCBC"];
 
   const valueFormatter = (item: { value: number }) => `${item.value}%`;
 
