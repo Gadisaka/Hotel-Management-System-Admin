@@ -16,7 +16,7 @@ interface BookingTableProps {
 export default function BookingTable({ data }: BookingTableProps) {
   return (
     <Box>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
         <Table>
           <TableHead>
             <TableRow>

@@ -5,7 +5,7 @@ import { PieChart } from "@mui/x-charts";
 const Piechart = () => {
   const data = [
     { label: "Single Bed", value: 25 },
-    { label: "Double Bed", value: 35 },
+    { label: "Double Bed", value: 70 },
     { label: "Triple Bed", value: 20 },
     { label: "VIP", value: 20 },
   ];
@@ -16,7 +16,7 @@ const Piechart = () => {
   const valueFormatter = (item: { value: number }) => `${item.value}%`;
 
   return (
-    <Box className=" lg:max-w-[48%]  w-full lg:items-start items-center shadow-md p-6">
+    <Box className=" lg:max-w-[48%]  w-full lg:items-start bg-white items-center  p-6">
       <Typography
         variant="h3"
         color="initial"

@@ -113,7 +113,7 @@ const Chart: React.FC = () => {
   };
 
   return (
-    <div className="shadow-md w-full lg:max-w-[48%] p-6 flex flex-col lg:items-start items-center justify-center ">
+    <div className=" w-full lg:max-w-[48%] p-6 flex flex-col lg:items-start bg-white items-center justify-center ">
       {" "}
       <Typography
         variant="h3"

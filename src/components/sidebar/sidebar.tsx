@@ -58,9 +58,10 @@ export default function Sidebar() {
             flexDirection: "column",
             gap: 5,
             padding: 2,
-            boxShadow: 3,
-            bgcolor: "white",
+            // boxShadow: 2,
+            bgcolor: "background.default",
           }}
+          // className="bg-gray-50"
         >
           <Box
             sx={{
@@ -87,6 +88,7 @@ export default function Sidebar() {
                   backgroundColor:
                     location.pathname === "/" ? "primary.light" : "inherit",
                   color: location.pathname === "/" ? "#fff" : "inherit",
+                  boxShadow: "none",
                 }}
               >
                 <Dashboard />
@@ -106,6 +108,7 @@ export default function Sidebar() {
                       ? "primary.light"
                       : "inherit",
                   color: location.pathname === "/bookings" ? "#fff" : "inherit",
+                  boxShadow: "none",
                 }}
               >
                 <Book />
@@ -125,6 +128,7 @@ export default function Sidebar() {
                       ? "primary.light"
                       : "inherit",
                   color: location.pathname === "/rooms" ? "#fff" : "inherit",
+                  boxShadow: "none",
                 }}
               >
                 <Bed />
@@ -145,6 +149,7 @@ export default function Sidebar() {
                       : "inherit",
                   color:
                     location.pathname === "/employees" ? "#fff" : "inherit",
+                  boxShadow: "none",
                 }}
               >
                 <Badge />
@@ -165,6 +170,7 @@ export default function Sidebar() {
                       : "inherit",
                   color:
                     location.pathname === "/customers" ? "#fff" : "inherit",
+                  boxShadow: "none",
                 }}
               >
                 <Person />
@@ -184,6 +190,7 @@ export default function Sidebar() {
                       ? "primary.light"
                       : "inherit",
                   color: location.pathname === "/settings" ? "#fff" : "inherit",
+                  boxShadow: "none",
                 }}
               >
                 <Settings />

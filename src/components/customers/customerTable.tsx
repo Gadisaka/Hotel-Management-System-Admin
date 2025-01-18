@@ -16,7 +16,7 @@ interface CustomersTableProps {
 export default function CustomersTable({ data }: CustomersTableProps) {
   return (
     <Box>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
         <Table>
           <TableHead>
             <TableRow>

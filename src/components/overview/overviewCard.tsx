@@ -8,7 +8,7 @@ import { Card as MuiCard, CardContent, Typography, Box } from "@mui/material";
 
 const Card: React.FC<CardProps> = ({ title, value, icon, total }) => {
   return (
-    <MuiCard>
+    <MuiCard sx={{ boxShadow: "none" }}>
       <CardContent>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <div>
