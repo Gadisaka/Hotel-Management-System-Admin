@@ -60,12 +60,28 @@ export default function EditRoom({ room, onCancel }: EditRoomProps) {
         fullWidth
         margin="normal"
       />
-      <Box sx={{ display: "flex", gap: 2, marginTop: 2 }}>
-        <Button variant="contained" color="primary" onClick={handleSave}>
-          Save
-        </Button>
-        <Button variant="outlined" color="secondary" onClick={onCancel}>
-          Cancel
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          // bgcolor: "green",
+        }}
+      >
+        <Box sx={{ display: "flex", gap: 2, marginTop: 2 }}>
+          <Button variant="contained" color="primary" onClick={handleSave}>
+            Save
+          </Button>
+          <Button variant="outlined" color="secondary" onClick={onCancel}>
+            Cancel
+          </Button>
+        </Box>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={onCancel}
+          sx={{ bgcolor: "red", marginTop: 2 }}
+        >
+          Delete
         </Button>
       </Box>
     </Box>

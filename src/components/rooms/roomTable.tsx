@@ -56,6 +56,7 @@ export default function RoomTable({ data }: RoomTableProps) {
                     variant="contained"
                     color="primary"
                     onClick={() => handleEditClick(room)}
+                    sx={{ bgcolor: "red" }}
                   >
                     Edit
                   </Button>

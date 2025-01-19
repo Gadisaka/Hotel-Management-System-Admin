@@ -288,7 +288,7 @@ const AddRoom: React.FC<AddRoomProps> = ({
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} color="secondary">
+        <Button onClick={onClose} variant="outlined" color="secondary">
           Cancel
         </Button>
         <Button onClick={handleAddRoom} variant="contained" color="primary">
