@@ -72,6 +72,7 @@ export default function FilterAndSearch({
         mb: 2,
         boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
       }}
+      className="flex flex-col lg:flex-row"
     >
       {/* Filter Buttons */}
       <Box
@@ -124,9 +125,10 @@ export default function FilterAndSearch({
           flexDirection: "column",
           gap: 1,
           width: "100%",
-          alignItems: "end",
+          // alignItems: "end",
           justifyContent: "center",
         }}
+        className=" items-start lg:items-end  p-5"
       >
         {/* Search Bar */}
         <Box

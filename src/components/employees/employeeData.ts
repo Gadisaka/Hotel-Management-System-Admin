@@ -12,7 +12,7 @@ export interface EmployeeData {
   username: string;
 }
 
-export const Employee: EmployeeData[] = [
+export const employees: EmployeeData[] = [
   {
     id: 1,
     firstName: "Ava",
