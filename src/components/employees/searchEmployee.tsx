@@ -2,6 +2,7 @@ import * as React from "react";
 import { employees } from "./employeeData";
 import { Box, TextField, Button } from "@mui/material";
 import AddRoom from "../rooms/addRoom";
+import AddEmployee from "./addEmployee";
 
 interface FilteredDataProps {
   onFilterChange: (filteredData: typeof employees) => void;
@@ -143,10 +144,10 @@ export default function Search({ onFilterChange }: FilteredDataProps) {
           </Box>
 
           {/* Add Room Dialog */}
-          <AddRoom
+          <AddEmployee
             open={addEmployeeDialogOpen}
             onClose={() => setAddEmployeeDialogOpen(false)}
-            onAddRoom={handleAddEmployee}
+            onAddEmployee={handleAddEmployee}
           />
         </Box>
       </Box>
