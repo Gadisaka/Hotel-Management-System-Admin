@@ -52,6 +52,8 @@ export default function FilterAndSearch({
         justifyContent: "space-between",
         alignItems: "center",
         mb: 2,
+        padding: 2,
+        bgcolor: "white",
       }}
     >
       {/* Filter Buttons */}
@@ -59,10 +61,10 @@ export default function FilterAndSearch({
         sx={{
           display: "flex",
           gap: 1,
-          backgroundColor: "background.paper",
+          // backgroundColor: "background.paper",
           borderRadius: 1,
           p: 1,
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          // boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
         }}
       >
         {["All", "Active", "Inactive", "Suspended"].map((status) => (

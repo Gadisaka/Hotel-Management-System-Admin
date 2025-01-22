@@ -8,7 +8,7 @@ import Employees from "./pages/Employees";
 import Rooms from "./pages/Rooms";
 import Customers from "./pages/Customers";
 import Bookings from "./pages/Bookings";
-import Setting from "./pages/Settings.tsx";
+import Account from "./pages/Account.tsx";
 
 const App: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ const App: React.FC = () => {
               <Route path="/rooms" element={<Rooms />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/bookings" element={<Bookings />} />
-              <Route path="/setting" element={<Setting />} />
+              <Route path="/account" element={<Account />} />
             </Routes>
           </main>
         </div>

@@ -6,35 +6,40 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  IconButton,
   Input,
   TextField,
 } from "@mui/material";
+import UploadIcon from "@mui/icons-material/Upload";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { EmployeeData } from "./employeeData";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface AddEmployeeProps {
   open: boolean;
   onClose: () => void;
-  onAddEmployee: (
-    employee: {
-      firstName: string;
-      lastName: string;
-      sex: string;
-      role: string;
-      birthDate: string;
-      phone: number;
-      salary: number;
-      image: string;
-      username?: string;
-      password?: string;
-    }[]
-  ) => void;
+  employee: EmployeeData;
+  // onAddEmployee: (
+  //   employee: {
+  //     firstName: string;
+  //     lastName: string;
+  //     sex: string;
+  //     role: string;
+  //     birthDate: string;
+  //     phone: number;
+  //     salary: number;
+  //     image: string;
+  //     username?: string;
+  //     password?: string;
+  //   }[]
+  // ) => void;
 }
 
 const AddEmployee: React.FC<AddEmployeeProps> = ({
   open,
   onClose,
-  onAddEmployee,
+  // employee,
 }) => {
   const [firstName, setFirstName] = React.useState<string>("");
   const [lastName, setLastName] = React.useState<string>("");
@@ -46,6 +51,13 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
   const [image, setImage] = React.useState<string>("");
   const [username, setUsername] = React.useState<string | null>(null);
   const [password, setPassword] = React.useState<string | null>(null);
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    React.useState<boolean>(false);
+  const [passwordError, setPasswordError] = React.useState<boolean>(false);
+  const [confirmPassword, setConfirmPassword] = React.useState<string | null>(
+    null
+  );
 
   //   const [role , setRole] = React.useState("other");
 
@@ -79,6 +91,44 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
       <DialogTitle>Add Employee</DialogTitle>
       {/* Add Employee Form */}
       <DialogContent>
+        <Input
+          inputProps={{ accept: "image/*" }}
+          style={{ display: "none" }}
+          id="raised-button-file"
+          type="file"
+          onChange={(e) => {
+            const target = e.target as HTMLInputElement;
+            if (target.files && target.files[0]) {
+              const reader = new FileReader();
+              reader.onload = (event) => {
+                if (event.target && event.target.result) {
+                  setImage(event.target.result as string);
+                }
+              };
+              reader.readAsDataURL(target.files[0]);
+            }
+          }}
+        />
+        <label htmlFor="raised-button-file">
+          <Button
+            component="span"
+            variant="outlined"
+            color="primary"
+            startIcon={<UploadIcon />}
+            sx={{ marginBottom: 2 }}
+          >
+            Upload Image
+          </Button>
+        </label>
+        {image && (
+          <Box pb={2}>
+            <img
+              src={image}
+              alt="Uploaded"
+              style={{ width: "100px", height: "100px", marginBottom: 2 }}
+            />
+          </Box>
+        )}
         <ToggleButtonGroup
           color="primary"
           value={role}
@@ -111,13 +161,22 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
               margin="normal"
             />
           </Box>
-          <Box className="flex  gap-2">
-            <TextField
-              label="Sex"
-              value={sex}
-              onChange={(e) => setSex(e.target.value)}
-              margin="normal"
-            />
+          <Box className="flex gap-8  ">
+            <Box>
+              <label>Sex</label>
+              <Box>
+                <ToggleButtonGroup
+                  color="primary"
+                  value={sex}
+                  exclusive
+                  onChange={(e, value) => setSex(value)}
+                  aria-label="Sex"
+                >
+                  <ToggleButton value="male">Male</ToggleButton>
+                  <ToggleButton value="female">Female</ToggleButton>
+                </ToggleButtonGroup>
+              </Box>
+            </Box>
             <TextField
               label="Birth Date"
               type="date"
@@ -133,49 +192,19 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
             <TextField
               label="Phone"
               type="number"
-              value={phone ?? ""}
+              value={phone}
               onChange={(e) => setPhone(Number(e.target.value))}
               margin="normal"
             />
             <TextField
               label="Salary"
               type="number"
-              value={salary ?? ""}
+              value={salary}
               onChange={(e) => setSalary(Number(e.target.value))}
               margin="normal"
             />
           </Box>
-          {/* upload image */}
-          {/* <Box>
-            <Input
-              inputProps={{ accept: "image/*" }}
-              style={{ display: "none" }}
-              id="raised-button-file"
-              type="file"
-              onChange={(e) => {
-                const target = e.target as HTMLInputElement;
-                if (target.files && target.files[0]) {
-                  const reader = new FileReader();
-                  reader.onload = (event) => {
-                    if (event.target && event.target.result) {
-                      setImage(event.target.result as string);
-                    }
-                  };
-                  reader.readAsDataURL(
-                    (e.target as HTMLInputElement).files![0]
-                  );
-                }
-              }}
-            />
-            <label htmlFor="raised-button-file">
-              <Button component="span">Upload Image</Button>
-            </label>
-            {image && (
-              <Box mt={2}>
-                <img src={image} alt="Uploaded" style={{ width: "100%" }} />
-              </Box>
-            )}
-          </Box> */}
+
           {role === "receptionist" || role === "admin" ? (
             <Box className="flex  gap-2">
               <TextField
@@ -187,11 +216,46 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
               />
               <TextField
                 label="Password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password ?? ""}
                 onChange={(e) => setPassword(e.target.value)}
                 fullWidth
                 margin="normal"
+                InputProps={{
+                  endAdornment: (
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  ),
+                }}
+              />
+              <TextField
+                label="Confirm Password"
+                type={showConfirmPassword ? "text" : "password"}
+                value={confirmPassword ?? ""}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                  setPasswordError(e.target.value !== password);
+                }}
+                fullWidth
+                margin="normal"
+                error={passwordError}
+                helperText={passwordError ? "Passwords do not match" : ""}
+                InputProps={{
+                  endAdornment: (
+                    <IconButton
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
+                      edge="end"
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  ),
+                }}
               />
             </Box>
           ) : null}
@@ -201,8 +265,13 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
         <Button onClick={onClose} variant="outlined" color="secondary">
           Cancel
         </Button>
-        <Button onClick={handleAddEmployee} variant="contained" color="primary">
-          Hire
+        <Button
+          onClick={handleAddEmployee}
+          variant="contained"
+          color="primary"
+          sx={{ bgcolor: "green" }}
+        >
+          Done
         </Button>
       </DialogActions>
     </Dialog>

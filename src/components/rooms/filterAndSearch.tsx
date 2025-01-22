@@ -70,7 +70,7 @@ export default function FilterAndSearch({
         borderRadius: 1,
         gap: 2,
         mb: 2,
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+        // boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
       }}
       className="flex flex-col lg:flex-row"
     >

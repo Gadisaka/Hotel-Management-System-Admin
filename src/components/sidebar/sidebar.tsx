@@ -1,4 +1,4 @@
-import { Box, Typography, Stack, Paper, IconButton, Menu } from "@mui/material";
+import { Box, Typography, Stack, Paper, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
@@ -9,7 +9,7 @@ import {
   Bed,
   Badge,
   Person,
-  Settings,
+  People,
 } from "@mui/icons-material";
 import { useState } from "react";
 
@@ -46,7 +46,7 @@ export default function Sidebar() {
           sx={{ position: "absolute", top: 16, left: 16 }}
           onClick={toggleSidebar}
         >
-          {isSidebarOpen ? <CloseIcon /> : <Menu />}
+          {/* {isSidebarOpen ? <CloseIcon /> : <Menu />} */}
         </IconButton>
       )}
       {isSidebarOpen && (
@@ -173,12 +173,12 @@ export default function Sidebar() {
                   boxShadow: "none",
                 }}
               >
-                <Person />
+                <People />
                 <Typography variant="button">Customers</Typography>
               </Item>
             </Link>
 
-            <Link to="/settings" style={{ textDecoration: "none" }}>
+            <Link to="/account" style={{ textDecoration: "none" }}>
               <Item
                 sx={{
                   gap: 2,
@@ -193,8 +193,8 @@ export default function Sidebar() {
                   boxShadow: "none",
                 }}
               >
-                <Settings />
-                <Typography variant="button">Settings</Typography>
+                <Person />
+                <Typography variant="button">Account</Typography>
               </Item>
             </Link>
           </Stack>

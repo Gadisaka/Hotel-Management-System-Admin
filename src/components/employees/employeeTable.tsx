@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { EmployeeData } from "./employeeData";
+import EditEmployee from "./editEmployee";
 
 interface EmployeeTableProps {
   data: EmployeeData[];
@@ -71,6 +72,15 @@ export default function EmployeeTable({ data }: EmployeeTableProps) {
           </TableBody>
         </Table>
       </TableContainer>
+
+      {/* Edit Employee Dialog */}
+      {editEmployee && (
+        <EditEmployee
+          open={Boolean(editEmployee)}
+          onClose={handleCloseEdit}
+          employee={editEmployee}
+        />
+      )}
     </Box>
   );
 }
