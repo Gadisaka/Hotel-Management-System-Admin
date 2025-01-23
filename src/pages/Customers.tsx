@@ -16,6 +16,7 @@ const Customers: React.FC = () => {
       >
         Customer
       </Typography>
+
       {/* Filter and Search */}
       <FilterAndSearch onFilterChange={(data) => setFilteredData(data)} />
 
