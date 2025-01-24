@@ -1,6 +1,5 @@
 import React from "react";
-import getEthiopianDate from "../../utils/ethiopianDate.js";
-import { Box, Avatar, IconButton, Menu } from "@mui/material";
+import { Box, Avatar, IconButton } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { useSidebarStore } from "@/store/store.js";
 import { Close, Menu as MenuIcon } from "@mui/icons-material";
@@ -30,7 +29,6 @@ const Top: React.FC = () => {
   };
 
   const today = getFormattedDate();
-  const todayEC = getEthiopianDate();
 
   const handleToggleSidebar = () => {
     toggleSidebar();
@@ -67,9 +65,7 @@ const Top: React.FC = () => {
         </IconButton>
       </Box>
       <Box></Box>
-      <Box className="hidden lg:flex">
-        {today} / {todayEC}
-      </Box>
+      <Box className="hidden lg:flex">{today}</Box>
       <Avatar
         sx={{ bgcolor: deepPurple[500] }}
         onClick={() => setIsProfileOpen(!isProfileOpen)}

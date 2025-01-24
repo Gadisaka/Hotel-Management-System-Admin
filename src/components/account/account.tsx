@@ -1,4 +1,4 @@
-import { ArrowUpward, Visibility, VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -6,7 +6,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardHeader,
   IconButton,
   InputAdornment,
   TextField,
