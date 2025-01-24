@@ -1,7 +1,6 @@
 import * as React from "react";
 import { EmployeeData } from "./employeeData";
 import {
-  Avatar,
   Box,
   Button,
   Dialog,
@@ -10,7 +9,6 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { Image } from "@mui/icons-material";
 
 interface EditEmployeeProps {
   open: boolean;

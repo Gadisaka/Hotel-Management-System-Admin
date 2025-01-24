@@ -27,6 +27,8 @@ export default function FilterAndSearch({
     price: number;
     status: string;
     floor: number;
+    startNumber?: number;
+    count?: number;
   }) => {
     rooms.push(newRoom); // Simulate adding the room to the dataset
     onFilterChange([...rooms]); // Update the parent with the new data

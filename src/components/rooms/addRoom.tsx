@@ -50,7 +50,7 @@ const AddRoom: React.FC<AddRoomProps> = ({
   const [startNumber, setStartNumber] = React.useState<number>(indexLength + 1);
   const [count, setCount] = React.useState<number | "">("");
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
     clearFields();
   };

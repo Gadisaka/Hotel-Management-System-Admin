@@ -1,7 +1,6 @@
 import * as React from "react";
 import { employees } from "./employeeData";
 import { Box, TextField, Button } from "@mui/material";
-import AddRoom from "../rooms/addRoom";
 import AddEmployee from "./addEmployee";
 
 interface FilteredDataProps {
@@ -15,7 +14,7 @@ export default function Search({ onFilterChange }: FilteredDataProps) {
   );
   const [showSearchBox, setShowSearchBox] = React.useState(false);
   const [addEmployeeDialogOpen, setAddEmployeeDialogOpen] =
-    React.useState(false); // New state for AddRoom dialog
+    React.useState(false);
 
   const handleAddEmployee = (newEmployee: {
     id: number;
@@ -30,8 +29,8 @@ export default function Search({ onFilterChange }: FilteredDataProps) {
     birthDate: string;
     username: string;
   }) => {
-    employees.push(newEmployee); // Simulate adding the room to the dataset
-    onFilterChange([...employees]); // Update the parent with the new data
+    employees.push(newEmployee); // Add the new employee to the data
+    onFilterChange([...employees]); // Update parent with new data
   };
 
   React.useEffect(() => {
@@ -40,7 +39,7 @@ export default function Search({ onFilterChange }: FilteredDataProps) {
       setShowSearchBox(false);
     } else {
       const results = employees.filter((employee) =>
-        employee.firstName.includes(searchText)
+        employee.firstName.toLowerCase().includes(searchText.toLowerCase())
       );
       setSearchResults(results);
       setShowSearchBox(true);
@@ -53,7 +52,7 @@ export default function Search({ onFilterChange }: FilteredDataProps) {
         sx={{
           gap: 1,
         }}
-        className=" flex flex-col bg-white mb-5 rounded-lg lg:flex-row w-full justify-between p-5 "
+        className="flex flex-col bg-white mb-5 rounded-lg lg:flex-row w-full justify-between p-5"
       >
         {/* Search Bar */}
         <Box
@@ -143,10 +142,23 @@ export default function Search({ onFilterChange }: FilteredDataProps) {
             </Button>
           </Box>
 
-          {/* Add Room Dialog */}
+          {/* Add Employee Dialog */}
           <AddEmployee
             open={addEmployeeDialogOpen}
             onClose={() => setAddEmployeeDialogOpen(false)}
+            employee={{
+              id: 0,
+              firstName: "",
+              lastName: "",
+              image: "",
+              sex: "",
+              password: "",
+              salary: 0,
+              role: "",
+              phone: "",
+              birthDate: "",
+              username: "",
+            }}
             onAddEmployee={handleAddEmployee}
           />
         </Box>

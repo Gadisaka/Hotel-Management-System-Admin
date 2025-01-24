@@ -20,37 +20,24 @@ interface AddEmployeeProps {
   open: boolean;
   onClose: () => void;
   employee: EmployeeData;
-  // onAddEmployee: (
-  //   employee: {
-  //     firstName: string;
-  //     lastName: string;
-  //     sex: string;
-  //     role: string;
-  //     birthDate: string;
-  //     phone: number;
-  //     salary: number;
-  //     image: string;
-  //     username?: string;
-  //     password?: string;
-  //   }[]
-  // ) => void;
+  onAddEmployee: (employee: EmployeeData) => void;
 }
 
 const AddEmployee: React.FC<AddEmployeeProps> = ({
   open,
   onClose,
-  // employee,
+  onAddEmployee,
 }) => {
   const [firstName, setFirstName] = React.useState<string>("");
   const [lastName, setLastName] = React.useState<string>("");
   const [sex, setSex] = React.useState<string>("");
   const [role, setRole] = React.useState<string>("");
   const [birthDate, setBirthDate] = React.useState<string>("");
-  const [phone, setPhone] = React.useState<number | null>(null);
+  const [phone, setPhone] = React.useState<string | null>(null);
   const [salary, setSalary] = React.useState<number | null>(null);
   const [image, setImage] = React.useState<string>("");
   const [username, setUsername] = React.useState<string | null>(null);
-  const [password, setPassword] = React.useState<string | null>(null);
+  const [password, setPassword] = React.useState<string>("");
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     React.useState<boolean>(false);
@@ -62,28 +49,43 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
   //   const [role , setRole] = React.useState("other");
 
   const handleChange = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     newRole: string
   ) => {
     setRole(newRole);
   };
 
   const handleAddEmployee = () => {
-    onClose();
+    const newEmployee: EmployeeData = {
+      id: Date.now(), // Simulate unique ID
+      firstName,
+      lastName,
+      image,
+      sex,
+      password: password || "", // Ensure password is a string
+      salary: salary || 0,
+      role,
+      phone: phone || "", // Ensure phone is a string
+      birthDate,
+      username: username || "", // Ensure username is a string
+    };
+
+    onAddEmployee(newEmployee); // Call parent function to add employee
+    onClose(); // Close the dialog
     clearFields();
   };
 
   const clearFields = () => {
     setFirstName("");
     setLastName("");
-    setSex("");
-    setRole("");
+    setSex("male");
+    setRole("admin");
     setBirthDate("");
-    setPhone(null);
+    setPhone("");
     setSalary(null);
     setImage("");
-    setUsername(null);
-    setPassword(null);
+    setUsername("");
+    setPassword("");
   };
 
   return (
@@ -169,7 +171,7 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
                   color="primary"
                   value={sex}
                   exclusive
-                  onChange={(e, value) => setSex(value)}
+                  onChange={(_e, value) => setSex(value)}
                   aria-label="Sex"
                 >
                   <ToggleButton value="male">Male</ToggleButton>
@@ -193,7 +195,7 @@ const AddEmployee: React.FC<AddEmployeeProps> = ({
               label="Phone"
               type="number"
               value={phone}
-              onChange={(e) => setPhone(Number(e.target.value))}
+              onChange={(e) => setPhone(String(e.target.value))}
               margin="normal"
             />
             <TextField
