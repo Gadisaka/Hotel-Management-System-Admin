@@ -8,7 +8,7 @@ const Customers: React.FC = () => {
   const [filteredData, setFilteredData] = React.useState(customers);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }} className="w-full">
       <Typography
         variant="h5"
         gutterBottom

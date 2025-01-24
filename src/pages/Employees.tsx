@@ -8,7 +8,7 @@ const Employees: React.FC = () => {
   const [filteredData, setFilteredData] = React.useState(employees);
 
   return (
-    <div>
+    <div className="w-full">
       <Typography
         variant="h5"
         gutterBottom

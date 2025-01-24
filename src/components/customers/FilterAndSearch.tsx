@@ -49,12 +49,12 @@ export default function FilterAndSearch({
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
+
         mb: 2,
         padding: 2,
         bgcolor: "white",
       }}
+      className="flex-col lg:flex-row lg:justify-between justify-start items-start lg:items-center"
     >
       {/* Filter Buttons */}
       <Box

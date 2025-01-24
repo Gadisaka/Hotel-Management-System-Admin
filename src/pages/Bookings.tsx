@@ -8,7 +8,7 @@ const Bookings: React.FC = () => {
   const [filteredData, setFilteredData] = React.useState(bookings);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }} className="w-full">
       {/* Filter and Search */}
       <Typography
         variant="h5"

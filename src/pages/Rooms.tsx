@@ -8,7 +8,7 @@ const Rooms: React.FC = () => {
   const [filteredData, setFilteredData] = React.useState(rooms);
 
   return (
-    <div>
+    <div className="w-full">
       <Typography
         variant="h5"
         gutterBottom

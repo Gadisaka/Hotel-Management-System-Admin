@@ -3,7 +3,7 @@ import AccountPage from "../components/account/account";
 
 const Account: React.FC = () => {
   return (
-    <div>
+    <div className="w-full">
       <Typography
         variant="h5"
         gutterBottom
