@@ -1,6 +1,7 @@
 import { Box, Typography, Stack, Paper, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../../assets/Black and Blue Initials Creative Logo.png";
 
 import {
   Domain,
@@ -46,11 +47,15 @@ export default function Sidebar() {
             justifyContent: "space-around",
             alignItems: "center",
             width: "100%",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            window.location.href = "/";
           }}
         >
           <Domain sx={{ color: "primary.light", fontSize: 40 }} />
           <Typography variant="h3" color="primary.light">
-            _Dotel
+            Dotel
           </Typography>
         </Box>
 

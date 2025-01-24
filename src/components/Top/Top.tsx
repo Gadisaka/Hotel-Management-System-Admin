@@ -4,6 +4,7 @@ import { Box, Avatar, IconButton, Menu } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { useSidebarStore } from "@/store/store.js";
 import { Close, Menu as MenuIcon } from "@mui/icons-material";
+import Profile from "./Profile.js";
 
 const Top: React.FC = () => {
   const getFormattedDate = (): string => {
@@ -16,7 +17,17 @@ const Top: React.FC = () => {
     return today.toLocaleDateString("en-US", options);
   };
 
+  const [isProfileOpen, setIsProfileOpen] = React.useState(false);
+
   const { isSidebarOpen, toggleSidebar } = useSidebarStore();
+
+  const user = {
+    image:
+      "https://www.radiofrance.fr/s3/cruiser-production/2021/05/e1e9f515-d792-41cd-8872-189e62905985/1200x680_gettyimages-1231050791_1.webp",
+
+    role: "Admin",
+    username: "John",
+  };
 
   const today = getFormattedDate();
   const todayEC = getEthiopianDate();
@@ -59,7 +70,16 @@ const Top: React.FC = () => {
       <Box className="hidden lg:flex">
         {today} / {todayEC}
       </Box>
-      <Avatar sx={{ bgcolor: deepPurple[500] }}>M</Avatar>
+      <Avatar
+        sx={{ bgcolor: deepPurple[500] }}
+        onClick={() => setIsProfileOpen(!isProfileOpen)}
+        src={user.image}
+      />
+      <Profile
+        open={isProfileOpen}
+        onClose={() => setIsProfileOpen(false)}
+        user={{ image: user.image, role: user.role, username: user.username }}
+      />
     </Box>
   );
 };

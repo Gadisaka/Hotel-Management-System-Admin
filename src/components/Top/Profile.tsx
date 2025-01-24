@@ -1,33 +1,62 @@
-import { Box, Dialog } from "@mui/material";
+import { Avatar, Box, Button, Dialog, Typography } from "@mui/material";
 import * as React from "react";
-const Profile: React.FC = () => {
-  interface DialogProps {
-    open: boolean;
-    onClose: () => void;
-    user: {
-      image: string;
-      role: string;
-      username: string;
-    };
-  }
 
-  const [open, setOpen] = React.useState(false);
-  const user = {
-    image: "path/to/image.jpg",
-    role: "Admin",
-    username: "JohnDoe",
+interface DialogProps {
+  open: boolean;
+  onClose: () => void;
+  user: {
+    image: string;
+    role: string;
+    username: string;
   };
+}
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+const Profile: React.FC<DialogProps> = ({ open, onClose, user }) => {
   return (
-    <Dialog open={open} onClose={handleClose}>
-      <Box>
-        <img src={user.image} alt={user.username} />
-        <p>{user.username}</p>
-        <p>{user.role}</p>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      PaperProps={{
+        style: {
+          position: "absolute",
+          top: 0,
+          right: 0,
+          margin: 15,
+          borderRadius: 10,
+        },
+      }}
+      //   className="w-48"
+    >
+      <Box className="flex w-52 py-4 flex-col gap-2 px-3">
+        <Box className="flex justify-center flex-col items-center gap-2">
+          <Avatar src={user.image} />
+          <Typography
+            className="text-2xl text-gray-800 font-bold"
+            sx={{
+              fontSize: "20px",
+              //   fontWeight: "bold",
+              color: "gray-800",
+              fontFamily: "sans-serif",
+            }}
+          >
+            {user.username}
+          </Typography>
+          <Typography sx={{ color: "blue" }}>{user.role}</Typography>
+        </Box>
+        <Box className="flex justify-center flex-col gap-1 ">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => {
+              window.location.href = "/account";
+            }}
+          >
+            Profile
+          </Button>
+          <Button variant="contained" onClick={onClose}>
+            Logout
+          </Button>
+        </Box>
       </Box>
     </Dialog>
   );
