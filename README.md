@@ -11,9 +11,9 @@ The project is organized into the following directories and files:
     - `components/`: React components used in the admin interface.
       - `employees/`: Components and data related to employee management.
       - `rooms/`: Components and data related to room management.
-          .
-          .
-          .
+      - .
+      - .
+      - .etc
     - `App.tsx`: Main application component.
     - `index.tsx`: Entry point for the React application.
   - `package.json`: Project configuration and dependencies.
