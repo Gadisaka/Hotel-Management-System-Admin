@@ -44,15 +44,12 @@ const Profile: React.FC<DialogProps> = ({ open, onClose, user }) => {
           <Typography sx={{ color: "blue" }}>{user.role}</Typography>
         </Box>
         <Box className="flex justify-center flex-col gap-1 ">
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => {
-              window.location.href = "/account";
-            }}
-          >
-            Profile
-          </Button>
+          <a href="/account">
+            <Button variant="outlined" sx={{ width: "100%" }} color="primary">
+              Profile
+            </Button>
+          </a>
+
           <Button variant="contained" onClick={onClose}>
             Logout
           </Button>
