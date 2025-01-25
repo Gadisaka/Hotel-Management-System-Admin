@@ -1,16 +1,18 @@
 export interface RoomData {
   id: number;
-  roomNumber: string;
+  roomNumber: number;
   type: string;
   price: number;
   floor: number;
   status: string;
+  startNumber?: number;
+  count?: number;
 }
 
 export const rooms: RoomData[] = [
   {
     id: 1,
-    roomNumber: "1",
+    roomNumber: 1,
     type: "Single",
     price: 100,
     floor: 1,
@@ -18,7 +20,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 2,
-    roomNumber: "2",
+    roomNumber: 2,
     type: "Double",
     price: 100,
     floor: 1,
@@ -26,7 +28,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 3,
-    roomNumber: "3",
+    roomNumber: 3,
     type: "Triple",
     price: 100,
     floor: 1,
@@ -34,7 +36,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 4,
-    roomNumber: "4",
+    roomNumber: 4,
     type: "Single",
     price: 100,
     floor: 1,
@@ -42,7 +44,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 5,
-    roomNumber: "5",
+    roomNumber: 5,
     type: "VIP",
     price: 100,
     floor: 1,
@@ -50,7 +52,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 6,
-    roomNumber: "6",
+    roomNumber: 6,
     type: "double",
     price: 100,
     floor: 1,
@@ -58,7 +60,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 7,
-    roomNumber: "7",
+    roomNumber: 7,
     type: "double",
     price: 100,
     floor: 1,
@@ -66,7 +68,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 8,
-    roomNumber: "8",
+    roomNumber: 8,
     type: "Single",
     price: 100,
     floor: 1,
@@ -74,7 +76,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 9,
-    roomNumber: "9",
+    roomNumber: 9,
     type: "Single",
     price: 100,
     floor: 1,
@@ -82,7 +84,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 10,
-    roomNumber: "10",
+    roomNumber: 10,
     type: "Single",
     price: 100,
     floor: 1,
@@ -90,7 +92,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 11,
-    roomNumber: "11",
+    roomNumber: 11,
     type: "Double",
     price: 200,
     floor: 2,
@@ -98,7 +100,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 12,
-    roomNumber: "12",
+    roomNumber: 12,
     type: "Double",
     price: 200,
     floor: 2,
@@ -106,7 +108,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 13,
-    roomNumber: "13",
+    roomNumber: 13,
     type: "Double",
     price: 200,
     floor: 2,
@@ -114,7 +116,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 14,
-    roomNumber: "14",
+    roomNumber: 14,
     type: "Double",
     price: 200,
     floor: 2,
@@ -122,7 +124,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 15,
-    roomNumber: "15",
+    roomNumber: 15,
     type: "Double",
     price: 200,
     floor: 2,
@@ -130,7 +132,7 @@ export const rooms: RoomData[] = [
   },
   {
     id: 16,
-    roomNumber: "16",
+    roomNumber: 16,
     type: "Double",
     price: 200,
     floor: 2,

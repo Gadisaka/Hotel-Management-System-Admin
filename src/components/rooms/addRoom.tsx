@@ -10,20 +10,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
+import { RoomData } from "./roomData";
 
 interface AddRoomProps {
   open: boolean;
   onClose: () => void;
-  onAddRoom: (
-    rooms: {
-      roomNumber: number;
-      floor: string;
-      type: string;
-      price: number;
-      status: string;
-      count?: number; // For multiple rooms
-    }[]
-  ) => void;
+  onAddRoom: (room: RoomData) => void;
   indexLength: number; // Current length of the index to calculate the next room number
 }
 
@@ -41,14 +33,14 @@ const AddRoom: React.FC<AddRoomProps> = ({
 
   // One Room State
   const [roomNumber, setRoomNumber] = React.useState<number>(indexLength + 1);
-  const [floor, setFloor] = React.useState<string>("1");
+  const [floor, setFloor] = React.useState<number>(1);
   const [type, setType] = React.useState<string>("Single");
   const [price, setPrice] = React.useState<number | "">("");
   const [status, setStatus] = React.useState<string>("Available");
 
   // Multiple Rooms State
   const [startNumber, setStartNumber] = React.useState<number>(indexLength + 1);
-  const [count, setCount] = React.useState<number | "">("");
+  const [count, setCount] = React.useState<number | undefined>(undefined);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
@@ -57,12 +49,12 @@ const AddRoom: React.FC<AddRoomProps> = ({
 
   const clearFields = () => {
     setRoomNumber(indexLength + 1);
-    setFloor("1");
+    setFloor(1);
     setType("Single");
     setPrice("");
     setStatus("Available");
     setStartNumber(indexLength + 1);
-    setCount("");
+    setCount(undefined);
     setRoomNumberError("");
     setStartNumberError("");
   };
@@ -84,39 +76,22 @@ const AddRoom: React.FC<AddRoomProps> = ({
   };
 
   const handleAddRoom = () => {
-    if (activeTab === 0) {
-      // Add One Room
-      if (!roomNumberError && price) {
-        onAddRoom([
-          {
-            roomNumber,
-            floor,
-            type,
-            price: Number(price),
-            status,
-          },
-        ]);
-        onClose();
-        clearFields();
-      } else {
-        alert("Please fill out all fields correctly.");
-      }
+    // Add One Room
+    if (!roomNumberError && price) {
+      onAddRoom({
+        id: Date.now(),
+        roomNumber,
+        floor,
+        type,
+        price: Number(price),
+        status,
+        startNumber,
+        count,
+      });
+      onClose();
+      clearFields();
     } else {
-      // Add Multiple Rooms
-      if (!startNumberError && price && count) {
-        const rooms = Array.from({ length: count }, (_, i) => ({
-          roomNumber: startNumber + i,
-          floor,
-          type,
-          price: Number(price),
-          status,
-        }));
-        onAddRoom(rooms);
-        onClose();
-        clearFields();
-      } else {
-        alert("Please fill out all fields correctly.");
-      }
+      alert("Please fill out all fields correctly.");
     }
   };
 
@@ -166,7 +141,7 @@ const AddRoom: React.FC<AddRoomProps> = ({
                 select
                 label="Floor"
                 value={floor}
-                onChange={(e) => setFloor(e.target.value)}
+                onChange={(e) => setFloor(Number(e.target.value))}
                 fullWidth
               >
                 {["1", "2", "3", "4", "5"].map((floor) => (
@@ -233,7 +208,7 @@ const AddRoom: React.FC<AddRoomProps> = ({
                 label="Count"
                 type="number"
                 value={count}
-                onChange={(e) => setCount(Number(e.target.value) || "")}
+                onChange={(e) => setCount(Number(e.target.value) || undefined)}
                 fullWidth
                 InputProps={{ inputProps: { min: 1 } }}
               />
@@ -241,7 +216,7 @@ const AddRoom: React.FC<AddRoomProps> = ({
                 select
                 label="Floor"
                 value={floor}
-                onChange={(e) => setFloor(e.target.value)}
+                onChange={(e) => setFloor(Number(e.target.value))}
                 fullWidth
               >
                 {["1", "2", "3", "4", "5"].map((floor) => (

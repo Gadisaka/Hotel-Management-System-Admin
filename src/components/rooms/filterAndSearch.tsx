@@ -22,7 +22,7 @@ export default function FilterAndSearch({
   // Handler to add a new room
   const handleAddRoom = (newRoom: {
     id: number;
-    roomNumber: string;
+    roomNumber: number;
     type: string;
     price: number;
     status: string;
@@ -55,7 +55,7 @@ export default function FilterAndSearch({
       setShowSearchBox(false);
     } else {
       const results = rooms.filter((room) =>
-        room.roomNumber.includes(searchText)
+        room.roomNumber.toString().includes(searchText)
       );
       setSearchResults(results);
       setShowSearchBox(true);
@@ -223,6 +223,7 @@ export default function FilterAndSearch({
         open={addRoomDialogOpen}
         onClose={() => setAddRoomDialogOpen(false)}
         onAddRoom={handleAddRoom}
+        indexLength={rooms.length} // Pass the current length of the rooms array
       />
     </Box>
   );

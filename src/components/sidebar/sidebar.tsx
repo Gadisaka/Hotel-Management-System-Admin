@@ -1,7 +1,6 @@
-import { Box, Typography, Stack, Paper, IconButton } from "@mui/material";
+import { Box, Typography, Stack, Paper } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/Black and Blue Initials Creative Logo.png";
 
 import {
   Domain,
