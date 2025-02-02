@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Hotel Management System - Admin Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the frontend admin interface for the Hotel Management System, designed to manage various aspects of hotel operations, including employee data, room bookings, and customer information.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project is organized into the following directories and files:
 
-## Expanding the ESLint configuration
+- `admin/`: Contains the administrative interface for managing the hotel.
+  - `src/`: Source code for the admin interface.
+    - `components/`: React components used in the admin interface.
+      - `employees/`: Components and data related to employee management.
+      - `rooms/`: Components and data related to room management.
+      - .
+      - .
+      - .etc
+    - `App.tsx`: Main application component.
+    - `index.tsx`: Entry point for the React application.
+  - `package.json`: Project configuration and dependencies.
+  - `vite.config.ts`: Configuration file for Vite.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- **Vite**: A fast build tool and development server.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **MUI (Material-UI)**: A popular React UI framework.
+- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Setup
+
+To set up the project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies using your preferred package manager (e.g., `npm install` ).
+
+## Running the Project
+
+To run the project, use the following command:
+
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This will start the Vite development server and you can view the application in your browser.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+The admin interface allows you to:
+
+- Manage employee data, including adding, editing, and deleting rooms.
+- Manage room data, including creating, updating, and removing rooms.
+- View and manage room bookings.
+- Handle customer information and reservations.
+
+## Contributing
+
+If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your forked repository.
+5. Create a pull request to the main repository.
+
+## License
+
+This project is licensed under the MIT License.
