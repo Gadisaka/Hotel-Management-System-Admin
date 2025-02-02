@@ -32,14 +32,14 @@ const AccountPage: React.FC = () => {
 
   const user: UserData = {
     id: 1,
-    firstName: "Abel",
-    lastName: "Tesfaye",
+    firstName: "Zack",
+    lastName: "Eldama",
     image:
       "https://www.radiofrance.fr/s3/cruiser-production/2021/05/e1e9f515-d792-41cd-8872-189e62905985/1200x680_gettyimages-1231050791_1.webp",
     phone: "123-456-7890",
     salary: 200000,
     role: "Admin",
-    username: "abel.tesfaye",
+    username: "zack",
     password: "",
   };
   const [userState, setUserState] = React.useState<UserData>(user);
