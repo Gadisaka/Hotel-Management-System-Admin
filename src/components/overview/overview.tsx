@@ -4,10 +4,10 @@ import Card from "./overviewCard";
 
 const Overview: React.FC = () => {
   const mockData = [
-    { title: "Active Customers", value: 436 },
-    { title: "Occupied Rooms", value: 436, total: 600 },
-    { title: "Today's Income", value: 750000 },
-    { title: "Today's Bookings", value: 435 },
+    { title: "Active Customers", value: 3 },
+    { title: "Occupied Rooms", value: 3, total: 90 },
+    { title: "Today's Income", value: 700 },
+    { title: "Today's Bookings", value: 1 },
   ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 w-full lg:grid-cols-4 gap-4">
